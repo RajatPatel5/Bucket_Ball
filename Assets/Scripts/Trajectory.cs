@@ -13,8 +13,8 @@ public class Trajectory : MonoBehaviour
     [SerializeField] [Range(0.01f,0.1f)]float dotMinScale;
     [SerializeField][Range(0.1f, 2f)] float dotMaxScale;
 
-    Transform[] dotsList;
-    Vector2 Pos;
+    Transform[] dotsList; //Array
+    Vector2 Pos; //A vector to store the position of each dot.
     float timeStamp;
 
     void Start()
@@ -26,7 +26,7 @@ public class Trajectory : MonoBehaviour
 
     void prepareDots()
     { 
-     dotsList = new Transform[dotsNumber];
+        dotsList = new Transform[dotsNumber];
         dotPrefab.transform.localScale = Vector3.one * dotMaxScale;
 
         float scale = dotMaxScale;
@@ -52,7 +52,7 @@ public class Trajectory : MonoBehaviour
         for (int i = 0; i < dotsNumber; i++)
         {
             Pos.x = (PlayerPos.x + forceApplied.x * timeStamp);
-            Pos.y = (PlayerPos.y + forceApplied.y * timeStamp) - (Physics2D.gravity.magnitude * timeStamp * timeStamp) / 2f;
+            Pos.y = (PlayerPos.y + forceApplied.y * timeStamp) - (Physics2D.gravity.magnitude * timeStamp * timeStamp) / 2f;//Projectile motion Formula
 
             dotsList[i].position = Pos;
             timeStamp += dotSpacing;
