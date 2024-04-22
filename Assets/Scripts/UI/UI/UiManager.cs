@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum GameScreens
 {
+    Slider,
     Home,
     Play,
     Win,

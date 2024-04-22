@@ -39,6 +39,7 @@ public class Game_Manager : MonoBehaviour
               }
               if (Input.GetMouseButtonUp(0))
               {
+                SoundManager.inst.PlaySound(SoundName.jump);
                 box.enabled= false;
                 isDragging = false;
                 OnDragEnd();

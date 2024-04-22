@@ -63,7 +63,10 @@ public class Sound
 public enum SoundName
 {
     soundOn,
-    musicOn
+    musicOn,
+    jump,
+    win,
+    gameOver
 }
 
 

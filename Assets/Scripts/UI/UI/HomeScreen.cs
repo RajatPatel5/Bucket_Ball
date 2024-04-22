@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class HomeScreen : BaseScreen
 {
     [SerializeField] Button startButton;
+    [SerializeField]Animator ballanimator;
     private void Start()
     {
 
@@ -14,6 +15,7 @@ public class HomeScreen : BaseScreen
      public override void ActivateScreen()
     {
         //AudioManager.instance.PlayInBackGround(SoundName.HomeScreenSound);
+        ballanimator.SetTrigger("bounce");
         base.ActivateScreen();
     }
     void OnStart()

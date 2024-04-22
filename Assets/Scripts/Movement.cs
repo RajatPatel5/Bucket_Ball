@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     private bool canTriggerWin = true;
     [SerializeField] private Game_Manager gameManager;
     public BoxCollider2D box;
-
+   
 
     public Vector3 pos { get { return transform.position; } }
 
@@ -66,6 +66,8 @@ public class Movement : MonoBehaviour
             }
             if(currentImageIndex==3)
             {
+                
+                SoundManager.inst.PlaySound(SoundName.gameOver);
                 Debug.Log("Game Over");
                 UiManager.instance.SwitchScreen(GameScreens.GameOver);
                 ResetHealthImages();
@@ -75,17 +77,14 @@ public class Movement : MonoBehaviour
         }
         if (collision.tag == "win" && canTriggerWin)
         {
+            SoundManager.inst.PlaySound(SoundName.win);
             canTriggerWin = false;
-            //win
             UiManager.instance.SwitchScreen(GameScreens.Win);
-            //position=transform.position; 
-            Debug.Log("win");
             StartCoroutine(EnableWinTrigger());
         }
     }
     public void Respawn()
     {
-            Debug.Log(currentImageIndex);
             box.enabled = true;
             gameManager.canTakeInput = true;
             rb.isKinematic = true;
@@ -102,8 +101,8 @@ public class Movement : MonoBehaviour
 
     IEnumerator EnableWinTrigger()
     {
-        yield return new WaitForSeconds(1f);  // Delay for 1 second
-        canTriggerWin = true;  // Enable win trigger after delay
+        yield return new WaitForSeconds(1f);  
+        canTriggerWin = true;  
     }
 
     public void ResetHealthImages()

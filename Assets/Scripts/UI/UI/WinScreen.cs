@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class WinScreen : BaseScreen
 {
     [SerializeField] Button nextButton;
     [SerializeField] Button homeButton;
+    
    
 
 
@@ -30,6 +32,8 @@ public class WinScreen : BaseScreen
         //AudioManager.instance.Play(SoundName.ButtonSound);
         //  UiManager.instance.SwitchScreen(GameScreens.Play);
         SoundManager.inst.PlaySound(SoundName.soundOn);
+        SceneManager.LoadScene("level2");
+
     }
     void OnHome()
     {
