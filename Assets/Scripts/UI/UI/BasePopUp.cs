@@ -20,7 +20,7 @@ public class BasePopUp : MonoBehaviour
         canvas.enabled = false;
     }
 
-    public virtual void TackInput()
+    public virtual void TakeInput()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {

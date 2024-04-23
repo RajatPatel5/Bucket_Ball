@@ -6,6 +6,7 @@ TagManager:
   tags:
   - collision
   - win
+  - rotate
   layers:
   - Default
   - TransparentFX

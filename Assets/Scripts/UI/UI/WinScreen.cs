@@ -6,10 +6,7 @@ public class WinScreen : BaseScreen
 {
     [SerializeField] Button nextButton;
     [SerializeField] Button homeButton;
-    
-   
-
-
+      
     private void Start()
     {
 
@@ -32,8 +29,9 @@ public class WinScreen : BaseScreen
         //AudioManager.instance.Play(SoundName.ButtonSound);
         //  UiManager.instance.SwitchScreen(GameScreens.Play);
         SoundManager.inst.PlaySound(SoundName.soundOn);
-        SceneManager.LoadScene("level2");
-
+        // SceneManager.LoadScene();
+      
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     void OnHome()
     {

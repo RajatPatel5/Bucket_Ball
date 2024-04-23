@@ -20,10 +20,13 @@ public class UiManager : MonoBehaviour
     [SerializeField] List<BaseScreen> _screens;
     [SerializeField] List<BasePopUp> _popUps;
     Stack<BasePopUp> PopUp = new Stack<BasePopUp>();
-
-    private void Start()
+    private void Awake()
     {
         instance = this;
+
+    }
+    private void Start()
+    {
         _currentScreen.ActivateScreen();
     }
 
@@ -32,12 +35,12 @@ public class UiManager : MonoBehaviour
         if (PopUp.Count != 0)
         {
 
-            PopUp.Peek().TackInput();
+            PopUp.Peek().TakeInput();
         }
 
         else
         {
-            _currentScreen.TackInput();
+            _currentScreen.TakeInput();
 
         }
 

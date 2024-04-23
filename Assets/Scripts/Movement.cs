@@ -83,12 +83,21 @@ public class Movement : MonoBehaviour
             StartCoroutine(EnableWinTrigger());
         }
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "rotate")
+    //    {
+    //        rb.constraints &= ~RigidbodyConstraints2D.FreezeRotation;
+    //    }
+    //}
     public void Respawn()
     {
+         //   rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             box.enabled = true;
             gameManager.canTakeInput = true;
             rb.isKinematic = true;
-            transform.position = position;
+            transform.position = position;  
             rb.velocity = Vector2.zero;
             StartCoroutine(Delay());
             rb.isKinematic = false;

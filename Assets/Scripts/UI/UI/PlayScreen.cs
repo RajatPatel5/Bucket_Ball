@@ -52,4 +52,10 @@ public class PlayScreen : BaseScreen
 
         player.SetActive(true);
     }
+    public override void DeactivateScreen()
+    {
+        base.DeactivateScreen();
+        player.SetActive(false);
+
+    }
 }
